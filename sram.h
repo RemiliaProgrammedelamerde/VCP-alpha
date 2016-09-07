@@ -7,12 +7,15 @@
 class SRAM : public RAM_BASE
 {
     public:
-        SRAM(const ramFormat a_format);
+        SRAM(const ramFormat a_format, unsigned char a_filler);
         virtual ~SRAM();
+
+        uint8 accesAt(const offset& a_offset) override;
 
     protected:
 
     unsigned const char* m_memory;
+    unsigned long m_pointer;
 
 };
 
